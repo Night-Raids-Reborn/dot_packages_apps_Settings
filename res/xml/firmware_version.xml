@@ -43,6 +43,14 @@
          android:selectable="false"
          settings:controller="com.android.settings.deviceinfo.firmwareversion.DotVersionPreferenceController"/>
 
+    <!-- Dot maintainer -->
+    <Preference
+        android:key="maintainer"
+        android:title="@string/maintainer"
+        android:summary="@string/summary_placeholder"
+        settings:enableCopying="true"
+        settings:controller="com.android.settings.deviceinfo.dot.DotMaintainerPreferenceController"/>
+
     <!-- Android version -->
     <Preference
         android:key="os_firmware_version"
