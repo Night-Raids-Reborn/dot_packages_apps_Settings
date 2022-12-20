@@ -216,4 +216,10 @@
         android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
         settings:controller="com.android.settings.display.FontSizePreferenceController" />
 
+    <Preference
+        android:key="additional_set"
+        android:title="@string/additionalset"
+        android:summary="@string/additionalsummary"
+        android:fragment="com.android.settings.custom.additionalset"/>
+
 </PreferenceScreen>

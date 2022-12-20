@@ -12261,4 +12261,10 @@
     <string name="duration_less_than_one_minute">Less than 1 minute</string>
     <!-- Summary for Wellbeing screen time usage. [CHAR LIMIT=NONE] -->
     <string name="screen_time_summary_usage_today">%1$s today</string>
+
+    <!-- ad-blocker -->
+    <string name="additionalsummary">Enable or disable addition</string>
+    <string name="additionalset">addition settings</string>
+    <string name="hosts_block_title">Ad-block</string>
+    <string name="hosts_block_summary">Block ads with a modified hosts file. Turn off to use third party solutions or if apps cause issues.</string>
 </resources>
