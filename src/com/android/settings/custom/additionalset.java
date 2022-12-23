@@ -52,7 +52,6 @@ import com.android.internal.logging.nano.MetricsProto;
 
 import com.dot.support.preferences.SystemPropSwitchPreference;
 
-@SearchIndexable
 public class additionalset extends SettingsPreferenceFragment
              implements Preference.OnPreferenceChangeListener {
 
@@ -92,21 +91,6 @@ public class additionalset extends SettingsPreferenceFragment
 
    @Override
     public int getMetricsCategory() {
-        return MetricsProto.MetricsEvent.CUSTOM_SETTINGS;
+        return MetricsProto.MetricsEvent.VIEW_UNKNOWN;
     }
-    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
-            new BaseSearchIndexProvider() {
-                @Override
-                public List<SearchIndexableResource> getXmlResourcesToIndex(
-                        Context context, boolean enabled) {
-                    final SearchIndexableResource sir = new SearchIndexableResource(context);
-                    sir.xmlResId = R.xml.additional_set;
-                    return Arrays.asList(sir);
-                }
-                @Override
-                public List<String> getNonIndexableKeys(Context context) {
-                    final List<String> keys = super.getNonIndexableKeys(context);
-                    return keys;
-                }
-            };
 }
