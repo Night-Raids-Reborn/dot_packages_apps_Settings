@@ -38,6 +38,8 @@ import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.SwitchPreference;
 import com.android.settings.R;
+import com.android.settings.search.BaseSearchIndexProvider;
+import com.android.settingslib.search.SearchIndexable;
 import com.android.settings.SettingsPreferenceFragment;
 import com.android.settings.Utils;
 import java.util.Locale;
@@ -46,10 +48,12 @@ import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
 import java.util.Collections;
+import com.android.internal.logging.nano.MetricsProto;
 
 import com.dot.support.preferences.SystemPropSwitchPreference;
 
- public class additionalset extends SettingsPreferenceFragment
+@SearchIndexable
+public class additionalset extends SettingsPreferenceFragment
              implements Preference.OnPreferenceChangeListener {
 
     private static final String PREF_ADBLOCK = "persist.aicp.hosts_block";
@@ -57,13 +61,12 @@ import com.dot.support.preferences.SystemPropSwitchPreference;
     private Handler mHandler = new Handler();
 
     @Override
-    protected int getPreferenceResource() {
-        return R.xml.additional_set;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void onCreate(Bundle icicle) {
+        super.onCreate(icicle);
+        addPreferencesFromResource(R.xml.additional_set);
+        PreferenceScreen prefSet = getPreferenceScreen();
+        final Resources res = getResources();
+        final PreferenceScreen prefScreen = getPreferenceScreen();
 
         findPreference(PREF_ADBLOCK).setOnPreferenceChangeListener(this);
     }
@@ -84,4 +87,26 @@ import com.dot.support.preferences.SystemPropSwitchPreference;
             return false;
         }
     }
+
+
+
+   @Override
+    public int getMetricsCategory() {
+        return MetricsProto.MetricsEvent.CUSTOM_SETTINGS;
+    }
+    public static final BaseSearchIndexProvider SEARCH_INDEX_DATA_PROVIDER =
+            new BaseSearchIndexProvider() {
+                @Override
+                public List<SearchIndexableResource> getXmlResourcesToIndex(
+                        Context context, boolean enabled) {
+                    final SearchIndexableResource sir = new SearchIndexableResource(context);
+                    sir.xmlResId = R.xml.additional_set;
+                    return Arrays.asList(sir);
+                }
+                @Override
+                public List<String> getNonIndexableKeys(Context context) {
+                    final List<String> keys = super.getNonIndexableKeys(context);
+                    return keys;
+                }
+            };
 }
