@@ -211,13 +211,14 @@
 
     <Preference
         android:key="font_size"
-        android:layout="@layout/dot_preference_bottom_card"
+        android:layout="@layout/dot_preference_middle_card"
         android:title="@string/title_font_size"
         android:fragment="com.android.settings.display.ToggleFontSizePreferenceFragment"
         settings:controller="com.android.settings.display.FontSizePreferenceController" />
 
     <Preference
         android:key="additional_set"
+        android:layout="@layout/dot_preference_bottom_card"
         android:title="@string/additionalset"
         android:summary="@string/additionalsummary"
         android:fragment="com.android.settings.custom.additionalset"/>

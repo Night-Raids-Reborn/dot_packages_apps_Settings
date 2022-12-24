@@ -12264,7 +12264,7 @@
 
     <!-- ad-blocker -->
     <string name="additionalsummary">Enable or disable addition</string>
-    <string name="additionalset">addition settings</string>
+    <string name="additionalset">Addition settings</string>
     <string name="hosts_block_title">Ad-block</string>
     <string name="hosts_block_summary">Block ads with a modified hosts file. Turn off to use third party solutions or if apps cause issues.</string>
 </resources>
