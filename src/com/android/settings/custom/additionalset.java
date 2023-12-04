@@ -82,9 +82,8 @@ public class additionalset extends SettingsPreferenceFragment
                     }
             }, 1000);
             return true;
-        } else {
-            return false;
         }
+        return false;
     }
 
 
